@@ -1,0 +1,30 @@
+<?php
+
+namespace App\Http\Controllers;
+
+
+use Illuminate\Http\Request
+use Illuminate\Support\Facades\DB;
+use App\Post;
+
+class PostController extends Controller
+{
+    public function show($title){
+
+        // $post=DB::table('post')->where('title',$title)->first();
+        // $post=Post::where('title',$title)->firstOrFail();
+
+    	// $posts=[
+     // 	'my-first-blog'=>'hlw its my first blog!',
+     // 	'my_second_post'=>'Second blog'
+     // ];
+
+
+    
+
+     return view('test',[
+     	'post'=>Post::where('title',$title)->firstOrFail()
+     ]);
+    }
+}
+

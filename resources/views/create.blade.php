@@ -1,0 +1,35 @@
+@extends('layout')
+
+@section('content')
+<div id="wrapper">
+    <div id="page" class="container">
+        <form action="/articles" method="post">
+        	@csrf
+        	<div>
+        		<input type="" name="title" placeholder="Title" value="{{old('title')}}">
+                @error('title')
+                <p style="color:red;">{{$errors->first('title')}}</p>
+                @enderror
+        	</div>
+        	<div>
+        		<textarea rows="5" name="excerpt" placeholder="Excerpt">{{old('excerpt')}}</textarea>
+               @error('excerpt')
+                <p style="color:red;">{{$errors->first('excerpt')}}</p>
+                @enderror
+        	</div>
+        	<div>
+        		<textarea rows="5" name="body" placeholder="Body">{{old('body')}}</textarea>
+                @error('body')
+                <p style="color:red;">{{$errors->first('body')}}</p>
+                @enderror
+        	</div>
+        	<div>
+        		<button type="submit" >create</button>
+        	</div>
+        </form>
+      
+        </div>
+    </div>
+            
+
+@endsection
